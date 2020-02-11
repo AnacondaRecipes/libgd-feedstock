@@ -9,6 +9,7 @@ elif [[ ${target_platform} == linux-32 ]]; then
   export CFLAGS="$CFLAGS -msse -mfpmath=sse"
 fi
 
+find ${PREFIX} -name '*.la' -delete
 autoreconf -vfi
 ./configure --prefix=$PREFIX \
             --without-xpm \
@@ -26,3 +27,6 @@ fi
 # see: https://github.com/libgd/libgd/issues/302
 export FREETYPE_PROPERTIES=truetype:interpreter-version=35
 make check || { cat tests/test-suite.log; exit 1; }
+
+# We can remove this when we start using the new conda-build.
+find $PREFIX -name '*.la' -delete

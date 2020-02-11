@@ -38,12 +38,22 @@ requirements:
     - libtiff
     - libwebp
     - zlib
+  run:
+    - expat
+    - fontconfig
+    - freetype
+    - icu
+    - jpeg
+    - libiconv  # [osx]
+    - libpng
+    - libtiff
+    - libwebp
+    - zlib
 
 test:
   commands:
-    - test -f $PREFIX/lib/libgd.a      # [linux]
-    - test -f $PREFIX/lib/libgd.dylib  # [osx]
-    - test -f $PREFIX/lib/libgd.la
+    - test -f $PREFIX/lib/libgd.a  # [linux]
+    - test -f $PREFIX/lib/libgd${SHLIB_EXT}  # [not win]
 
 about:
     home: http://libgd.github.io/
