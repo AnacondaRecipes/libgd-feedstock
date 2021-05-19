@@ -18,6 +18,9 @@ build:
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libgd
     - {{ pin_subpackage('libgd', max_pin='x.x') }}
+  ignore_run_exports:
+    - icu
+    - expat
 
 requirements:
   build:
