@@ -1,5 +1,5 @@
-{% set version = "2.3.2" %}
-{% set sha256 = "ee0c74852c102140fc590541950127b63a3c6fa4592305c16738d23ed65f8ac3" %}
+{% set version = "2.3.3" %}
+{% set sha256 = "dd3f1f0bb016edcc0b2d082e8229c822ad1d02223511997c80461481759b1ed2" %}
 
 package:
   name: libgd
