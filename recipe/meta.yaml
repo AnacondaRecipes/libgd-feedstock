@@ -32,6 +32,8 @@ requirements:
     - gettext
     - pkg-config
     - make
+    - patch     # [unix]
+    - m2-patch  # [win]
   host:
     - expat
     - fontconfig
