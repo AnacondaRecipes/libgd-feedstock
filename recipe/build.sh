@@ -15,6 +15,7 @@ fi
 find ${PREFIX} -name '*.la' -delete
 autoreconf -vfi
 ./configure --prefix=$PREFIX \
+            --enable-gd-formats \
             --without-xpm \
             --without-x \
             --disable-werror \
