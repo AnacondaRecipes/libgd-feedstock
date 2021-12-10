@@ -13,7 +13,7 @@ source:
     - patches/linux-fontconfig-basic.patch
 
 build:
-  skip: True  # [win]
+  skip: True  # [win or s390x]
   number: 3
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libgd
@@ -43,7 +43,7 @@ requirements:
     - libiconv  # [osx]
     - libpng
     - libtiff
-    - libwebp
+    - libwebp-base
     - zlib
   run:
     - expat
@@ -54,7 +54,6 @@ requirements:
     - libiconv  # [osx]
     - libpng
     - libtiff
-    - libwebp
     - zlib
 
 test:
