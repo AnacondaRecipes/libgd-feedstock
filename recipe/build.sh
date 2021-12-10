@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -x
 
+# resolving test issues, see: https://github.com/libgd/libgd/issues/763#issuecomment-918049103
+export TMPDIR=$SRC_DIR/temp_files
+mkdir -p $TMPDIR
+
 if [[ ${target_platform} == linux-ppc64le ]]; then
   # https://github.com/libgd/libgd/issues/278
   export CFLAGS="$CFLAGS -ffp-contract=off"
