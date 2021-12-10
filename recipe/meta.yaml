@@ -66,6 +66,7 @@ about:
     license_family: BSD
     license_file: COPYING
     dev_url: https://github.com/libgd/libgd
+    doc_url: https://libgd.github.io/pages/docs.html
 
 extra:
   recipe-maintainers:
