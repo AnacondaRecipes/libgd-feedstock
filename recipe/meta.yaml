@@ -44,7 +44,6 @@ requirements:
     - libpng
     - libtiff
     - libwebp-base
-    - zlib
   run:
     - expat
     - fontconfig
@@ -54,7 +53,6 @@ requirements:
     - libiconv  # [osx]
     - libpng
     - libtiff
-    - zlib
 
 test:
   commands:
