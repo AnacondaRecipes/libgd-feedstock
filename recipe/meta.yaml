@@ -14,7 +14,7 @@ source:
 
 build:
   skip: True  # [win or s390x]
-  number: 3
+  number: 0
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libgd
     - {{ pin_subpackage('libgd', max_pin='x.x') }}
