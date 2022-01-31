@@ -32,7 +32,8 @@ requirements:
     - gettext
     - pkg-config
     - make
-  host:
+    - patch
+   host:
     - expat
     - fontconfig
     - freetype
