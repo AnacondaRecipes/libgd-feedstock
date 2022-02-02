@@ -33,7 +33,7 @@ requirements:
     - pkg-config
     - make
     - patch
-   host:
+  host:
     - expat
     - fontconfig
     - freetype
