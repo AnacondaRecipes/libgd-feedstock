@@ -13,8 +13,7 @@ source:
     - patches/linux-fontconfig-basic.patch
 
 build:
-  skip: True  # [win or s390x]
-  number: 0
+  number: 1
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libgd
     - {{ pin_subpackage('libgd', max_pin='x.x') }}
@@ -23,34 +22,37 @@ build:
   ignore_run_exports:
     - icu
     - expat
+    - jpeg  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - automake
-    - libtool
-    - gettext
+    - automake      # [not win]
+    - libtool       # [not win]
+    - gettext       # [not win]
     - pkg-config
-    - make
-    - patch     # [unix]
-    - m2-patch  # [win]
+    - make          # [not win]
+    - patch         # [unix]
+    - m2-patch      # [win]
+    - cmake         # [win]
+    - ninja-base    # [win]
   host:
     - expat
-    - fontconfig
+    - fontconfig    # [not win]
     - freetype
     - icu
     - jpeg
-    - libiconv  # [osx]
+    - libiconv      # [osx]
     - libpng
     - libtiff
-    - libwebp-base
+    - libwebp-base  # [not win]
   run:
     - expat
-    - fontconfig
+    - fontconfig    # [not win]
     - freetype
     - icu
     - jpeg
-    - libiconv  # [osx]
+    - libiconv      # [osx]
     - libpng
     - libtiff
 
@@ -58,10 +60,17 @@ test:
   commands:
     - test -f $PREFIX/lib/libgd.a  # [linux]
     - test -f $PREFIX/lib/libgd${SHLIB_EXT}  # [not win]
+    - if not exist %PREFIX%\\Library\\bin\\libgd.dll exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\lib\\libgd.lib exit 1  # [win]
 
 about:
-    home: http://libgd.github.io/
-    summary: 'Library for the dynamic creation of images.'
+    home: https://libgd.github.io/
+    summary: Library for the dynamic creation of images.
+    description: |
+      GD is commonly used to generate charts, graphics, thumbnails, and most anything else, on the fly. 
+      It is lite weight and fits usages like web development, embemdedded, or any other usages you may need.
+      It supports transparency, blending, images transformations and various filters. 
+      Its design allows the additions of custom features in a very friendly manner.
     license: GD
     license_family: BSD
     license_file: COPYING
