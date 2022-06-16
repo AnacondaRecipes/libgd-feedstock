@@ -46,7 +46,6 @@ requirements:
     - libpng
     - libtiff
     - libwebp-base  # [not win]
-    - zlib          # [win]
   run:
     - expat
     - fontconfig    # [not win]
@@ -56,7 +55,6 @@ requirements:
     - libiconv      # [osx]
     - libpng
     - libtiff
-    - zlib          # [win]
 
 test:
   commands:
