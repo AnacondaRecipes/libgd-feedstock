@@ -13,16 +13,10 @@ source:
     - patches/linux-fontconfig-basic.patch
 
 build:
-  number: 1
+  number: 2
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libgd
     - {{ pin_subpackage('libgd', max_pin='x.x') }}
-  # 5/19/2021: When packaging libgd the error was for icu and expat "run-exports library package 
-  # in requirements/run but it is not used" 
-  ignore_run_exports:
-    - icu
-    - expat
-    - jpeg  # [win]
 
 requirements:
   build:
@@ -38,23 +32,24 @@ requirements:
     - ninja-base    # [win]
   host:
     - expat
-    - fontconfig    # [not win]
+    - fontconfig
     - freetype
     - icu
     - jpeg
     - libiconv      # [osx]
     - libpng
     - libtiff
-    - libwebp-base  # [not win]
+    - libwebp
   run:
     - expat
-    - fontconfig    # [not win]
+    - fontconfig
     - freetype
     - icu
     - jpeg
     - libiconv      # [osx]
     - libpng
     - libtiff
+    - libwebp
 
 test:
   commands:
