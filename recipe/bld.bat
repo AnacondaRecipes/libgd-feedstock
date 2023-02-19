@@ -20,6 +20,9 @@ cmake .. %CMAKE_ARGS% ^
       -DENABLE_JPEG=1 ^
       -DENABLE_TIFF=1 ^
       -DENABLE_FREETYPE=1 ^
+      -DENABLE_FONTCONFIG=1 ^
+      -DENABLE_WEBP=1 ^
+      -DENABLE_GD_FORMATS=1 ^
       -DBUILD_TEST=0 ^
       -DVERBOSE_MAKEFILE=1
 
