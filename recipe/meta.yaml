@@ -33,9 +33,10 @@ requirements:
     - sed           # [unix]
   host:
     - expat 2.4.9
-    - fontconfig 2.14.*
-    - freetype 2.10.*
-    - icu 68.*
+    - fontconfig 2.14
+    - freetype 2.10
+    - icu 68  # [s390x or aarch64 or (osx and arm64)]
+    - icu 58  # [not (s390x or aarch64 or (osx and arm64))]
     - jpeg 9e
     - libiconv 1.16     # [osx]
     - libpng 1.6.*
@@ -46,7 +47,8 @@ requirements:
     - expat >=2.4.9,<3.0a0
     - fontconfig >=2.14.1,<3.0a0
     - freetype >=2.10.4,<3.0a0
-    - icu >=68.1,<69.0a0
+    - icu >=68.1,<69.0a0  # [s390x or aarch64 or (osx and arm64)]
+    - icu >=58.0,<59.0a0  # [not (s390x or aarch64 or (osx and arm64))]
     - jpeg >=9e,<10a
     - libiconv >=1.16,<2.0a0     # [osx]
     - libpng >=1.6.37,<1.7.0a0
