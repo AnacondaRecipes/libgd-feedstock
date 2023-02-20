@@ -29,7 +29,10 @@ cmake .. %CMAKE_ARGS% ^
 :: Build.
 echo "Building..."
 ninja
-if errorlevel 1 exit /b 1
+if errorlevel 1 (
+  echo CMakeFiles\\CMakeOutput.log
+  exit /b 1
+)
 
 
 :: Perform tests.
