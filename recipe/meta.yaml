@@ -21,6 +21,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - automake      # [not win]
     - libtool       # [not win]
     - gettext       # [not win]
@@ -31,6 +32,9 @@ requirements:
     - cmake         # [win]
     - ninja-base    # [win]
     - sed           # [unix]
+    - gawk          # [unix]
+    - m2-sed        # [win]
+    - m2-gawk       # [win]
   host:
     - expat 2.4.9
     - fontconfig 2.14
