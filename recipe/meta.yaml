@@ -32,27 +32,27 @@ requirements:
     - ninja-base    # [win]
     - sed           # [unix]
   host:
-    - expat
-    - fontconfig
-    - freetype
-    - icu
-    - jpeg
-    - libiconv      # [osx]
-    - libpng
-    - libtiff
-    - libwebp
-    - zlib
+    - expat 2.4.9
+    - fontconfig 2.14.*
+    - freetype 2.10.*
+    - icu 68.*
+    - jpeg 9e
+    - libiconv 1.16     # [osx]
+    - libpng 1.6.*
+    - libtiff 4.2.*
+    - libwebp 1.2.0
+    - zlib 1.2.13
   run:
-    - expat
-    - fontconfig
-    - freetype
-    - icu
-    - jpeg
-    - libiconv      # [osx]
-    - libpng
-    - libtiff
-    - libwebp
-    - zlib
+    - expat >=2.4.9,<3.0a0
+    - fontconfig >=2.14.1,<3.0a0
+    - freetype >=2.10.4,<3.0a0
+    - icu >=68.1,<69.0a0
+    - jpeg >=9e,<10a
+    - libiconv >=1.16,<2.0a0     # [osx]
+    - libpng >=1.6.37,<1.7.0a0
+    - libtiff >=4.2.0,<5.0a0
+    - libwebp >=1.2.0,<1.3.0a0
+    - zlib >=1.2.13,<1.3.0a0
 
 test:
   commands:
