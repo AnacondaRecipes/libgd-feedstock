@@ -30,7 +30,7 @@ cmake .. %CMAKE_ARGS% ^
 echo "Building..."
 ninja
 if errorlevel 1 (
-  echo CMakeFiles\\CMakeOutput.log
+  type CMakeFiles\CMakeOutput.log
   exit /b 1
 )
 
