@@ -8,9 +8,6 @@ mkdir -p $TMPDIR
 if [[ ${target_platform} != *-64 ]]; then
   # https://github.com/libgd/libgd/issues/278
   export CFLAGS="$CFLAGS -ffp-contract=off"
-elif [[ ${target_platform} == linux-32 ]]; then
-  # https://github.com/libgd/libgd/blob/gd-2.2.5/docs/README.TESTING#L65-L70
-  export CFLAGS="$CFLAGS -msse -mfpmath=sse"
 fi
 
 find ${PREFIX} -name '*.la' -delete
