@@ -43,7 +43,6 @@ requirements:
     - libiconv 1.16     # [osx]
     - libpng {{ libpng }}
     - libtiff 4.7.0
-    - libwebp {{ libwebp }}
     - libwebp-base {{ libwebp }}
     - zlib {{ zlib }}
   run:
