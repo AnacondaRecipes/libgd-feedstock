@@ -3,3 +3,5 @@ build_parameters:
   - "--suppress-variables"
   - "--error-overlinking"
 
+channels:
+  - https://staging.continuum.io/prefect/fs/libtiff-feedstock/pr21/9f246b8
