@@ -5,3 +5,4 @@ build_parameters:
 
 channels:
   - https://staging.continuum.io/prefect/fs/libtiff-feedstock/pr21/9f246b8
+  - https://staging.continuum.io/prefect/fs/libwebp-feedstock/pr9/8ca27b2
