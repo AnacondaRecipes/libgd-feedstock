@@ -14,6 +14,7 @@ source:
 
 build:
   number: 4
+  skip: true  # [s390x]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libgd
     - {{ pin_subpackage('libgd', max_pin='x.x') }}
@@ -50,7 +51,7 @@ requirements:
     - fontconfig
     - freetype
     - jpeg
-    - libiconv >=1.16,<2.0a0     # [osx]
+    - libiconv  # [osx]
     - libpng
     - libtiff
     - libwebp
