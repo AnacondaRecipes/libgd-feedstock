@@ -4,6 +4,5 @@ build_parameters:
   - "--error-overlinking"
 
 channels:
-  - https://staging.continuum.io/prefect/fs/libtiff-feedstock/pr21/475b812
-  - https://staging.continuum.io/prefect/fs/libwebp-feedstock/pr9/0896de1
-
+  - https://staging.continuum.io/prefect/fs/libtiff-feedstock/pr21/34f8d4b
+  - https://staging.continuum.io/prefect/fs/libwebp-feedstock/pr9/53e70a8
