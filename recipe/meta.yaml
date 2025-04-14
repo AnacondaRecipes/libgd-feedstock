@@ -42,7 +42,7 @@ requirements:
     - jpeg {{ jpeg }}
     - libiconv 1.16     # [osx]
     - libpng {{ libpng }}
-    - libtiff 4.7.0
+    - libtiff {{ libtiff }}
     - libwebp-base {{ libwebp }}
     - zlib {{ zlib }}
   run:
