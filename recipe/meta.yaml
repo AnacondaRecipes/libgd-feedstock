@@ -1,42 +1,40 @@
+{% set name = "libgd" %}
 {% set version = "2.3.3" %}
-{% set sha256 = "dd3f1f0bb016edcc0b2d082e8229c822ad1d02223511997c80461481759b1ed2" %}
 
 package:
-  name: libgd
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://github.com/libgd/libgd/releases/download/gd-{{version}}/libgd-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/{{ name }}/{{ name }}/releases/download/gd-{{version}}/{{ name }}-{{ version }}.tar.gz
+  sha256: dd3f1f0bb016edcc0b2d082e8229c822ad1d02223511997c80461481759b1ed2
   patches:
     # see: https://github.com/libgd/libgd/issues/367
     - patches/linux-fontconfig-basic.patch
 
 build:
-  number: 4
+  number: 5
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libgd
     - {{ pin_subpackage('libgd', max_pin='x.x') }}
 
 requirements:
   build:
+    - {{ stdlib("c") }}
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - pkg-config
     - automake      # [not win]
     - libtool       # [not win]
     - gettext       # [not win]
-    - pkg-config
     - make          # [not win]
-    - patch         # [unix]
-    - m2-patch      # [win]
     - cmake         # [win]
     - ninja-base    # [win]
     - sed           # [unix]
     - gawk          # [unix]
-    - m2-sed        # [win]
-    - m2-gawk       # [win]
+    - msys2-sed     # [win]
+    - msys2-gawk    # [win]
   host:
-    - expat {{ expat }}
+    - libexpat {{ expat }}
     - fontconfig {{ fontconfig }}
     - freetype {{ freetype }}
     - jpeg {{ jpeg }}
@@ -45,27 +43,26 @@ requirements:
     - libtiff {{ libtiff }}
     - libwebp-base {{ libwebp }}
     - zlib {{ zlib }}
-  run:
-    - expat
-    - fontconfig
-    - freetype
-    - jpeg
-    - libiconv  # [osx]
-    - libpng
-    - libtiff
-    - libwebp
-    - libwebp-base
-    - zlib
 
 test:
+  requires:
+    - pkg-config
   commands:
-    - test -f $PREFIX/lib/libgd.a  # [linux]
-    - test -f $PREFIX/lib/libgd${SHLIB_EXT}  # [not win]
-    - if not exist %PREFIX%\\Library\\bin\\libgd.dll exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\lib\\libgd.lib exit 1  # [win]
+    - test -f $PREFIX/lib/libgd${SHLIB_EXT}                 # [not win]
+    - test -f $PREFIX/include/gd.h                          # [not win]
+    - test -f $PREFIX/lib/pkgconfig/gdlib.pc                # [not win]
+
+    - if not exist %LIBRARY_LIB%\libgd.lib exit 1           # [win]
+    - if not exist %LIBRARY_BIN%\libgd.dll exit 1           # [win]
+    - if not exist %LIBRARY_INC%\gd.h exit 1                # [win]
+    - if exist %LIBRARY_INC%\config.h exit 1                # [win]
+    - if not exist %LIBRARY_LIB%\pkgconfig\gdlib.pc exit 1  # [win]
+
+    - pkg-config gdlib --cflags
+    - pkg-config gdlib --libs
 
 about:
-    home: https://libgd.github.io/
+    home: https://libgd.github.io
     summary: Library for the dynamic creation of images.
     description: |
       GD is commonly used to generate charts, graphics, thumbnails, and most anything else, on the fly. 
