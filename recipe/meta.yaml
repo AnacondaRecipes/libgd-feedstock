@@ -13,7 +13,7 @@ source:
     - patches/linux-fontconfig-basic.patch
 
 build:
-  number: 5
+  number: 6
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libgd
     - {{ pin_subpackage('libgd', max_pin='x.x') }}
@@ -37,8 +37,8 @@ requirements:
     - libexpat {{ expat }}
     - fontconfig {{ fontconfig }}
     - freetype {{ freetype }}
-    - jpeg {{ jpeg }}
-    - libiconv 1.16     # [osx]
+    - libjpeg-turbo {{ libjpeg_turbo }}
+    - libiconv {{ libiconv }}     # [osx]
     - libpng {{ libpng }}
     - libtiff {{ libtiff }}
     - libwebp-base {{ libwebp }}
